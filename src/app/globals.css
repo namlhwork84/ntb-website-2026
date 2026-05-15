@@ -1,26 +1,141 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-be-vietnam-pro);
+  --font-body: var(--font-archivo);
   --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-be-vietnam-pro);
+
+  /* NTB Brand Colors */
+  --color-ntb-navy: #01377d;
+  --color-ntb-navy-dark: #01224c;
+  --color-ntb-navy-light: #044d8e;
+  --color-ntb-green: #004900;
+  --color-ntb-green-mid: #007100;
+  --color-ntb-green-light: #009600;
+  --color-ntb-green-accent: #00b300;
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  --background: #ffffff;
+  --foreground: #0a0a0a;
+  --card: #ffffff;
+  --card-foreground: #0a0a0a;
+  --popover: #ffffff;
+  --popover-foreground: #0a0a0a;
+  --primary: #01377d;
+  --primary-foreground: #ffffff;
+  --secondary: #f3f6f9;
+  --secondary-foreground: #01377d;
+  --muted: #f3f6f9;
+  --muted-foreground: #64748b;
+  --accent: #004900;
+  --accent-foreground: #ffffff;
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: #e2e8f0;
+  --input: #e2e8f0;
+  --ring: #01377d;
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-be-vietnam-pro), sans-serif;
+    font-weight: 700;
+  }
+  p, span, li, a {
+    font-family: var(--font-archivo), var(--font-be-vietnam-pro), sans-serif;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* NTB Brand Wave Pattern */
+.ntb-wave-bg {
+  background: linear-gradient(135deg, #01377d 0%, #01224c 60%, #004900 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.ntb-wave-bg::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 60%;
+  height: 200%;
+  background: linear-gradient(135deg, rgba(0, 113, 0, 0.3) 0%, rgba(0, 150, 0, 0.1) 50%, transparent 100%);
+  border-radius: 50%;
+  transform: rotate(-15deg);
+}
+
+.ntb-wave-bg::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  right: 5%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(1, 55, 125, 0.4) 0%, rgba(4, 77, 142, 0.2) 100%);
+  border-radius: 50%;
+  transform: rotate(10deg);
+}
+
+/* Section styles */
+.section-light {
+  background-color: #f3f6f9;
+}
+
+.section-white {
+  background-color: #ffffff;
+}
+
+/* Gradient text */
+.text-gradient-ntb {
+  background: linear-gradient(135deg, #01377d, #004900);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Card hover */
+.card-hover {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(1, 55, 125, 0.12);
 }

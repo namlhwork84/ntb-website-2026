@@ -1,0 +1,187 @@
+import type { Metadata } from "next";
+import { Target, Eye, Heart, Star, Users, Globe, FlaskConical, Shield } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Giới thiệu | NTB Pharma New",
+  description: "Tìm hiểu về NTB Pharma New — 12 năm chuyên nghiên cứu và phân phối dược phẩm chất lượng cao tại Việt Nam.",
+};
+
+const coreValues = [
+  { icon: FlaskConical, title: "Chất lượng", desc: "Cam kết 100% sản phẩm đạt tiêu chuẩn quốc tế GMP, EU-GMP, ISO 9001. Không thỏa hiệp với chất lượng." },
+  { icon: Shield, title: "Tin cậy", desc: "12 năm xây dựng uy tín với hơn 300 bệnh viện và gần 10.000 nhà thuốc. Mỗi sản phẩm là một lời hứa." },
+  { icon: Heart, title: "Tận tâm", desc: "Đặt lợi ích sức khỏe cộng đồng lên hàng đầu. Mỗi sản phẩm được nghiên cứu với mong muốn giúp người bệnh có cuộc sống tốt hơn." },
+  { icon: Globe, title: "Hội nhập", desc: "Kết nối với mạng lưới đối tác quốc tế uy tín tại Úc, Nhật Bản, Hàn Quốc và Nga để mang giải pháp tốt nhất về Việt Nam." },
+  { icon: Star, title: "Tiên phong", desc: "Luôn đi đầu trong nghiên cứu và ứng dụng công nghệ dược phẩm mới nhất. Không ngừng đổi mới để phục vụ tốt hơn." },
+  { icon: Users, title: "Đoàn kết", desc: "Xây dựng đội ngũ chuyên nghiệp, gắn kết. Thành công của từng thành viên là thành công của cả tổ chức." },
+];
+
+const milestones = [
+  { year: "2012", title: "Thành lập", desc: "Công ty TNHH Thương mại NTB Pharma New được thành lập tại Hà Nội với định hướng phân phối dược phẩm chất lượng cao." },
+  { year: "2016", title: "Mở rộng toàn quốc", desc: "Phủ sóng 30+ tỉnh thành, ký kết hợp đồng với 100+ bệnh viện tuyến trung ương và địa phương." },
+  { year: "2019", title: "Đối tác quốc tế", desc: "Ký kết hợp tác chiến lược với các nhà sản xuất đạt chuẩn EU-GMP từ Úc, Nhật Bản, Hàn Quốc." },
+  { year: "2022", title: "10 năm phát triển", desc: "Kỷ niệm 10 năm thành lập với hơn 250 bệnh viện đối tác và mạng lưới 8.000+ nhà thuốc toàn quốc." },
+  { year: "2025", title: "Đổi mới thương hiệu", desc: "Ra mắt nhận diện thương hiệu mới, khẳng định vị thế chuyên gia nghiên cứu phát triển sản phẩm từ gốc." },
+  { year: "2026", title: "Stronger Together", desc: "Bước vào giai đoạn phát triển mới với chiến lược mở rộng ra thị trường Đông Nam Á." },
+];
+
+export default function AboutPage() {
+  return (
+    <>
+      {/* Hero */}
+      <section className="ntb-wave-bg pt-36 pb-24 relative overflow-hidden">
+        <div className="absolute right-0 top-0 w-[45%] h-full opacity-15 pointer-events-none">
+          <svg viewBox="0 0 500 800" fill="white" className="w-full h-full">
+            <circle cx="400" cy="300" r="280" />
+            <circle cx="400" cy="300" r="200" fillOpacity="0.4" />
+          </svg>
+        </div>
+        <div className="relative container mx-auto px-4">
+          <p className="text-[#00b300] text-sm font-semibold uppercase tracking-widest mb-3">Về chúng tôi</p>
+          <h1 className="text-4xl lg:text-6xl font-extrabold text-white mb-6 leading-tight max-w-2xl">
+            12 năm vì sức khỏe cộng đồng
+          </h1>
+          <p className="text-white/70 text-lg max-w-xl leading-relaxed">
+            Chúng tôi không chỉ phân phối thuốc — chúng tôi phân phối sức khỏe,
+            niềm tin và hy vọng cho hàng triệu bệnh nhân Việt Nam.
+          </p>
+        </div>
+      </section>
+
+      {/* Story */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <p className="text-sm font-semibold text-[#004900] uppercase tracking-widest mb-3">Câu chuyện của chúng tôi</p>
+              <h2 className="text-3xl lg:text-4xl font-extrabold text-[#01377d] mb-6 leading-tight">
+                Từ giấc mơ đến<br />thực tế
+              </h2>
+              <div className="space-y-4 text-gray-600 leading-relaxed">
+                <p>
+                  Công ty TNHH Thương mại NTB Pharma New được thành lập năm 2012 bởi CEO Trần Thị Hồng Thái.
+                  Tên gọi NTB kết hợp từ tên của những người đồng nghiệp và gia đình — những người đã cùng nhau
+                  xây dựng ước mơ đưa dược phẩm chất lượng cao đến tay người bệnh Việt Nam.
+                </p>
+                <p>
+                  Sau 12 năm phát triển, NTB Pharma New đã trở thành nhà phân phối dược phẩm uy tín với mạng lưới
+                  phủ sóng trên 60 tỉnh thành, đối tác của hơn 300 bệnh viện lớn và gần 10.000 nhà thuốc bán lẻ.
+                </p>
+                <p>
+                  Chúng tôi chuyên phân phối các sản phẩm điều trị thần kinh, nhi khoa và sản phụ khoa — những lĩnh vực
+                  đòi hỏi sự chính xác, tin cậy và tận tâm cao nhất.
+                </p>
+              </div>
+            </div>
+
+            {/* Stats card */}
+            <div className="grid grid-cols-2 gap-4">
+              {[
+                { value: "2012", label: "Năm thành lập", color: "from-[#01377d] to-[#044d8e]" },
+                { value: "60+", label: "Tỉnh thành", color: "from-[#004900] to-[#007100]" },
+                { value: "300+", label: "Bệnh viện đối tác", color: "from-[#044d8e] to-[#01377d]" },
+                { value: "10.000+", label: "Nhà thuốc", color: "from-[#007100] to-[#004900]" },
+              ].map((item, i) => (
+                <div key={i} className={`p-6 rounded-2xl bg-gradient-to-br ${item.color} text-white`}>
+                  <div className="text-3xl font-extrabold mb-1">{item.value}</div>
+                  <div className="text-sm text-white/70">{item.label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Mission & Vision */}
+      <section id="su-menh" className="py-20 section-light">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-14">
+            <p className="text-sm font-semibold text-[#004900] uppercase tracking-widest mb-3">Định hướng chiến lược</p>
+            <h2 className="text-3xl lg:text-4xl font-extrabold text-[#01377d]">Tầm nhìn & Sứ mệnh</h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div className="p-8 rounded-2xl bg-gradient-to-br from-[#01377d] to-[#01224c] text-white">
+              <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center mb-5">
+                <Eye size={24} />
+              </div>
+              <h3 className="text-xl font-bold mb-4">Tầm nhìn</h3>
+              <p className="text-white/80 leading-relaxed">
+                Trở thành nhà phân phối dược phẩm hàng đầu Việt Nam và tiên phong mở rộng ra thị trường
+                Đông Nam Á, mang giải pháp sức khỏe từ gốc đến hàng triệu bệnh nhân.
+              </p>
+            </div>
+
+            <div className="p-8 rounded-2xl bg-gradient-to-br from-[#004900] to-[#007100] text-white">
+              <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center mb-5">
+                <Target size={24} />
+              </div>
+              <h3 className="text-xl font-bold mb-4">Sứ mệnh</h3>
+              <p className="text-white/80 leading-relaxed">
+                Cung cấp các sản phẩm dược phẩm chất lượng quốc tế với giá cạnh tranh,
+                đồng hành cùng hệ thống y tế Việt Nam để nâng cao sức khỏe cộng đồng.
+              </p>
+            </div>
+          </div>
+
+          {/* Brand positioning */}
+          <div className="mt-10 max-w-3xl mx-auto text-center p-8 rounded-2xl border-2 border-[#01377d]/20 bg-white">
+            <p className="text-xs text-gray-400 uppercase tracking-widest mb-3">Định vị thương hiệu</p>
+            <blockquote className="text-2xl lg:text-3xl font-bold text-[#01377d] italic leading-relaxed">
+              "Chuyên gia nghiên cứu phát triển sản phẩm tiên phong từ gốc"
+            </blockquote>
+          </div>
+        </div>
+      </section>
+
+      {/* Core Values */}
+      <section id="gia-tri" className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-14">
+            <p className="text-sm font-semibold text-[#004900] uppercase tracking-widest mb-3">Nền tảng văn hóa</p>
+            <h2 className="text-3xl lg:text-4xl font-extrabold text-[#01377d]">Giá trị cốt lõi</h2>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {coreValues.map((v, i) => (
+              <div key={i} className="p-6 rounded-2xl border border-gray-100 hover:border-[#01377d]/20 hover:shadow-lg transition-all card-hover">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#01377d]/10 to-[#004900]/10 flex items-center justify-center mb-4">
+                  <v.icon size={22} className="text-[#01377d]" />
+                </div>
+                <h3 className="font-bold text-gray-900 mb-2">{v.title}</h3>
+                <p className="text-sm text-gray-500 leading-relaxed">{v.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Timeline */}
+      <section className="py-20 section-light">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-14">
+            <p className="text-sm font-semibold text-[#004900] uppercase tracking-widest mb-3">Hành trình phát triển</p>
+            <h2 className="text-3xl lg:text-4xl font-extrabold text-[#01377d]">Những cột mốc quan trọng</h2>
+          </div>
+
+          <div className="max-w-3xl mx-auto relative">
+            {/* Vertical line */}
+            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#01377d] to-[#004900]" />
+
+            <div className="space-y-8">
+              {milestones.map((m, i) => (
+                <div key={i} className="flex gap-6 items-start">
+                  <div className="shrink-0 w-16 h-16 rounded-full bg-gradient-to-br from-[#01377d] to-[#004900] flex items-center justify-center text-white font-bold text-xs text-center z-10 relative shadow-lg">
+                    {m.year}
+                  </div>
+                  <div className="flex-1 pb-2">
+                    <h3 className="font-bold text-gray-900 mb-1">{m.title}</h3>
+                    <p className="text-sm text-gray-500 leading-relaxed">{m.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}

@@ -38,6 +38,7 @@ export default function PartnersSection() {
                 alt={p.name}
                 width={130}
                 height={60}
+                style={{ width: "auto", height: "auto", maxHeight: "52px" }}
                 className="object-contain"
               />
             </div>

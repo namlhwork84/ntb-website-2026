@@ -1,16 +1,17 @@
 "use client";
+import NTBLogo from "@/components/NTBLogo";
 
-const CX = 290;
-const CY = 290;
-const INNER_R = 132;
-const OUTER_R = 222;
-const SIZE = 580;
+const CX = 390;
+const CY = 390;
+const INNER_R = 178;
+const OUTER_R = 308;
+const SIZE = 780;
 
 function pos(angleDeg: number, r: number) {
   const rad = (angleDeg * Math.PI) / 180;
   return {
-    left: CX + r * Math.sin(rad),
-    top: CY - r * Math.cos(rad),
+    left: Math.round((CX + r * Math.sin(rad)) * 100) / 100,
+    top: Math.round((CY - r * Math.cos(rad)) * 100) / 100,
   };
 }
 
@@ -105,64 +106,78 @@ export default function ProductOrbitSection() {
               })}
             </svg>
 
-            {/* Center: NTB Logo */}
+            {/* Center: NTB Logo (new design) */}
             <div
-              className="absolute flex items-center justify-center rounded-full bg-white border-2 border-[#01377d]/20 shadow-xl z-20"
-              style={{ width: 80, height: 80, left: CX - 40, top: CY - 40 }}
+              className="absolute flex items-center justify-center rounded-full bg-white border-2 border-[#01377d]/20 shadow-2xl z-20"
+              style={{ width: 110, height: 110, left: CX - 55, top: CY - 55 }}
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="http://ntbpharmanew.vn/img/ntb-logo.png"
-                alt="NTB Pharma New"
-                width={56} height={56}
-                className="object-contain"
-              />
+              <div className="flex flex-col items-center justify-center gap-0.5 px-2">
+                {/* Green icon only — circle portion of new logo */}
+                <svg viewBox="0 0 60 60" width="52" height="52" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <radialGradient id="orb-orbit" cx="35%" cy="30%" r="65%">
+                      <stop offset="0%" stopColor="#d4eeff" />
+                      <stop offset="45%" stopColor="#62b8f0" />
+                      <stop offset="100%" stopColor="#1260b0" />
+                    </radialGradient>
+                  </defs>
+                  <circle cx="30" cy="30" r="28" fill="#5dc855" />
+                  <circle cx="30" cy="30" r="22" fill="#39a831" />
+                  <circle cx="30" cy="30" r="16" fill="#1d8020" />
+                  <circle cx="30" cy="30" r="10" fill="#0c5a12" />
+                  <circle cx="30" cy="30" r="5"  fill="#063808" />
+                  <circle cx="16" cy="44" r="9"  fill="url(#orb-orbit)" />
+                  <ellipse cx="13" cy="41" rx="3.5" ry="2.5" fill="rgba(255,255,255,0.55)" />
+                </svg>
+                <span className="text-[9px] font-extrabold text-[#01377d] leading-none tracking-tight">NTB</span>
+                <span className="text-[6px] text-gray-400 leading-none">Pharma New</span>
+              </div>
             </div>
 
-            {/* Category circles (inner ring) */}
+            {/* Category circles (inner ring) — larger */}
             {categories.map((cat) => {
               const p = pos(cat.angle, INNER_R);
               return (
                 <div
                   key={cat.label}
-                  className="absolute flex flex-col items-center justify-center rounded-full bg-white border border-red-200 shadow-md z-10"
+                  className="absolute flex flex-col items-center justify-center rounded-full bg-white border-2 border-red-200 shadow-lg z-10"
                   style={{
-                    width: 76, height: 76,
-                    left: p.left - 38, top: p.top - 38,
+                    width: 100, height: 100,
+                    left: p.left - 50, top: p.top - 50,
                   }}
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={cat.src}
                     alt={cat.label}
-                    width={36} height={36}
-                    className="object-contain mb-0.5"
+                    width={46} height={46}
+                    className="object-contain mb-1"
                   />
-                  <span className="text-[8px] font-bold text-[#01377d] text-center leading-tight px-1">
+                  <span className="text-[9px] font-bold text-[#01377d] text-center leading-tight px-1">
                     {cat.label.toUpperCase()}
                   </span>
                 </div>
               );
             })}
 
-            {/* Product circles (outer ring) */}
+            {/* Product circles (outer ring) — larger */}
             {products.map((prod) => {
               const p = pos(prod.angle, OUTER_R);
               return (
                 <div
                   key={prod.label}
                   title={prod.label}
-                  className="absolute flex items-center justify-center rounded-full bg-white border border-gray-200 shadow-sm hover:shadow-md hover:scale-110 transition-all z-10 cursor-pointer"
+                  className="absolute flex flex-col items-center justify-center rounded-full bg-white border border-gray-200 shadow-md hover:shadow-xl hover:scale-110 transition-all z-10 cursor-pointer group"
                   style={{
-                    width: 60, height: 60,
-                    left: p.left - 30, top: p.top - 30,
+                    width: 78, height: 78,
+                    left: p.left - 39, top: p.top - 39,
                   }}
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={prod.src}
                     alt={prod.label}
-                    width={44} height={44}
+                    width={56} height={56}
                     className="object-contain"
                   />
                 </div>

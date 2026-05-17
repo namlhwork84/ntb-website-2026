@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Brain, Baby, Heart } from "lucide-react";
 
 const productGroups = [
@@ -11,9 +12,9 @@ const productGroups = [
       "Các sản phẩm hỗ trợ điều trị bệnh lý thần kinh, đột quỵ, rối loạn tuần hoàn não. Được nhập khẩu từ các nhà sản xuất đạt chuẩn EU-GMP.",
     products: ["Tharodas", "Gadacal"],
     color: "from-[#01377d] to-[#044d8e]",
-    lightColor: "bg-blue-50",
     borderColor: "border-blue-100",
     badgeColor: "bg-blue-100 text-[#01377d]",
+    image: null,
   },
   {
     id: "nhi-khoa",
@@ -24,9 +25,9 @@ const productGroups = [
       "Sản phẩm bổ sung vi chất, hỗ trợ phát triển toàn diện cho trẻ từ sơ sinh đến 15 tuổi. Công thức nhập khẩu từ Úc, Nhật Bản.",
     products: ["BocalsoNTB"],
     color: "from-[#004900] to-[#007100]",
-    lightColor: "bg-green-50",
     borderColor: "border-green-100",
     badgeColor: "bg-green-100 text-[#004900]",
+    image: "/images/product-haas-vital.jpg",
   },
   {
     id: "san-phu-khoa",
@@ -37,9 +38,9 @@ const productGroups = [
       "Sản phẩm hỗ trợ phụ nữ mang thai, sau sinh và điều trị các vấn đề phụ khoa. Được nghiên cứu chuyên sâu cho nhu cầu đặc thù của phụ nữ Việt.",
     products: ["Pregcandy", "Solufemo"],
     color: "from-[#712B13] to-[#9b3b1a]",
-    lightColor: "bg-rose-50",
     borderColor: "border-rose-100",
     badgeColor: "bg-rose-100 text-[#712B13]",
+    image: null,
   },
 ];
 
@@ -66,16 +67,33 @@ export default function ProductsSection() {
               key={group.id}
               className={`rounded-2xl border ${group.borderColor} bg-white overflow-hidden card-hover`}
             >
-              {/* Header gradient */}
-              <div className={`p-8 bg-gradient-to-br ${group.color} relative overflow-hidden`}>
-                <div className="absolute top-0 right-0 w-32 h-32 rounded-full bg-white/5 -translate-y-8 translate-x-8" />
-                <div className="absolute bottom-0 left-0 w-20 h-20 rounded-full bg-white/5 translate-y-6 -translate-x-6" />
-                <div className="relative z-10">
-                  <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center mb-4">
-                    <group.icon size={24} className="text-white" />
+              {/* Header: real photo if available, else gradient */}
+              <div className={`relative h-52 bg-gradient-to-br ${group.color} overflow-hidden group`}>
+                {group.image ? (
+                  <>
+                    <Image
+                      src={group.image}
+                      alt={group.category}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      sizes="(max-width: 1024px) 100vw, 33vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+                  </>
+                ) : (
+                  <>
+                    <div className="absolute top-0 right-0 w-32 h-32 rounded-full bg-white/5 -translate-y-8 translate-x-8" />
+                    <div className="absolute bottom-0 left-0 w-20 h-20 rounded-full bg-white/5 translate-y-6 -translate-x-6" />
+                  </>
+                )}
+                <div className="absolute bottom-0 left-0 right-0 p-5 z-10">
+                  <div className="flex items-center gap-2 mb-1">
+                    <div className="w-8 h-8 rounded-lg bg-white/20 flex items-center justify-center">
+                      <group.icon size={16} className="text-white" />
+                    </div>
+                    <h3 className="text-xl font-extrabold text-white">{group.category}</h3>
                   </div>
-                  <h3 className="text-2xl font-extrabold text-white mb-1">{group.category}</h3>
-                  <p className="text-white/70 text-sm">{group.tagline}</p>
+                  <p className="text-white/80 text-xs">{group.tagline}</p>
                 </div>
               </div>
 

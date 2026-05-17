@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Target, Eye, Heart, Star, Users, Globe, FlaskConical, Shield } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -73,19 +74,23 @@ export default function AboutPage() {
               </div>
             </div>
 
-            {/* Stats card */}
-            <div className="grid grid-cols-2 gap-4">
-              {[
-                { value: "2012", label: "Năm thành lập", color: "from-[#01377d] to-[#044d8e]" },
-                { value: "60+", label: "Tỉnh thành", color: "from-[#004900] to-[#007100]" },
-                { value: "300+", label: "Bệnh viện đối tác", color: "from-[#044d8e] to-[#01377d]" },
-                { value: "10.000+", label: "Nhà thuốc", color: "from-[#007100] to-[#004900]" },
-              ].map((item, i) => (
-                <div key={i} className={`p-6 rounded-2xl bg-gradient-to-br ${item.color} text-white`}>
-                  <div className="text-3xl font-extrabold mb-1">{item.value}</div>
-                  <div className="text-sm text-white/70">{item.label}</div>
+            {/* Team photo */}
+            <div className="relative rounded-2xl overflow-hidden aspect-[4/3] shadow-xl">
+              <Image
+                src="/images/team-kickoff-2026.jpg"
+                alt="Toàn bộ đội ngũ NTB Pharma New - Kick-off 2026"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#01377d]/70 via-transparent to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-full px-3 py-1.5 text-white text-xs font-semibold mb-2">
+                  <Users size={12} />
+                  Kick-off 2026 — NTB Stronger Together
                 </div>
-              ))}
+                <p className="text-white font-bold">100+ thành viên cùng nhau bước vào năm 2026</p>
+              </div>
             </div>
           </div>
         </div>
@@ -148,6 +153,34 @@ export default function AboutPage() {
                 </div>
                 <h3 className="font-bold text-gray-900 mb-2">{v.title}</h3>
                 <p className="text-sm text-gray-500 leading-relaxed">{v.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Culture photos */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-10">
+            <p className="text-sm font-semibold text-[#004900] uppercase tracking-widest mb-2">Đời sống NTB</p>
+            <h2 className="text-2xl lg:text-3xl font-extrabold text-[#01377d]">Văn hóa & Con người</h2>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            {[
+              { src: "/images/office-birthday-1.jpg", alt: "Sinh nhật tại văn phòng NTB" },
+              { src: "/images/teambuilding-halong-2.jpg", alt: "Teambuilding Hạ Long" },
+              { src: "/images/ntb-stronger-5.jpg", alt: "Sự kiện NTB Stronger" },
+              { src: "/images/teambuilding-halong-4.jpg", alt: "Đội ngũ teambuilding" },
+            ].map((photo, i) => (
+              <div key={i} className="relative aspect-square rounded-xl overflow-hidden group">
+                <Image
+                  src={photo.src}
+                  alt={photo.alt}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  sizes="(max-width: 768px) 50vw, 25vw"
+                />
               </div>
             ))}
           </div>

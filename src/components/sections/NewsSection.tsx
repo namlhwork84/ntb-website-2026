@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Calendar } from "lucide-react";
 
 const newsItems = [
@@ -10,6 +11,7 @@ const newsItems = [
     excerpt:
       "NTB Pharma New tiếp tục khẳng định vai trò đồng hành cùng cộng đồng y tế tại hội nghị khoa học y dược thường niên năm 2026.",
     href: "/tin-tuc/hoi-nghi-khoa-hoc-2026",
+    image: "/images/hoi-thao-tap-the.jpg",
   },
   {
     date: "2026-03-15",
@@ -19,15 +21,17 @@ const newsItems = [
     excerpt:
       "Sự kiện kick-off đầu năm 2026 với chủ đề 'Stronger Together' đánh dấu bước chuyển mình mạnh mẽ trong chiến lược phát triển của NTB Pharma New.",
     href: "/tin-tuc/kick-off-2026",
+    image: "/images/ntb-stronger-1.jpg",
   },
   {
     date: "2026-01-20",
     dateDisplay: "20/01/2026",
     category: "Sản phẩm",
-    title: "Ra mắt dòng sản phẩm thần kinh thế hệ mới",
+    title: "Ra mắt sản phẩm Haas Vital Stronger Multivitamin",
     excerpt:
-      "NTB Pharma New chính thức giới thiệu dòng sản phẩm thần kinh thế hệ mới, kết quả của 3 năm nghiên cứu chuyên sâu cùng đối tác châu Âu.",
-    href: "/tin-tuc/san-pham-than-kinh-moi",
+      "NTB Pharma New chính thức giới thiệu Haas Vital Stronger Multivitamin — sản phẩm dinh dưỡng thế hệ mới dành cho trẻ em, kết quả hợp tác với đối tác Úc.",
+    href: "/tin-tuc/ra-mat-haas-vital",
+    image: "/images/event-product-launch-1.jpg",
   },
 ];
 
@@ -65,17 +69,17 @@ export default function NewsSection() {
               href={item.href}
               className="group block bg-white rounded-2xl border border-gray-100 overflow-hidden hover:border-[#01377d]/20 hover:shadow-xl transition-all card-hover"
             >
-              {/* Image placeholder with gradient */}
-              <div className="h-48 bg-gradient-to-br from-[#01377d] to-[#004900] relative overflow-hidden">
-                <div className="absolute inset-0 flex items-center justify-center opacity-20">
-                  <svg viewBox="0 0 200 200" className="w-40 h-40" fill="white">
-                    <circle cx="100" cy="100" r="90" />
-                    <circle cx="100" cy="100" r="65" fill="rgba(0,0,0,0.3)" />
-                    <circle cx="100" cy="100" r="40" fill="rgba(0,0,0,0.3)" />
-                    <circle cx="75" cy="80" r="25" fill="rgba(255,255,255,0.3)" />
-                  </svg>
-                </div>
-                <div className="absolute bottom-4 left-4">
+              {/* Real photo */}
+              <div className="relative h-48 overflow-hidden bg-[#01377d]">
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+                <div className="absolute bottom-3 left-4">
                   <span className={`px-3 py-1 rounded-full text-xs font-semibold ${categoryColors[item.category] || "bg-gray-100 text-gray-700"}`}>
                     {item.category}
                   </span>

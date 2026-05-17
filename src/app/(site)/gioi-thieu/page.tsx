@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { Target, Eye, Heart, Star, Users, Globe, FlaskConical, Shield } from "lucide-react";
+import { Target, Eye, Users, Globe, FlaskConical, Scale, CheckCircle2, Gift, BookOpen } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Giới thiệu | NTB Pharma New",
@@ -8,12 +8,12 @@ export const metadata: Metadata = {
 };
 
 const coreValues = [
-  { icon: FlaskConical, title: "Chất lượng", desc: "Cam kết 100% sản phẩm đạt tiêu chuẩn quốc tế GMP, EU-GMP, ISO 9001. Không thỏa hiệp với chất lượng." },
-  { icon: Shield, title: "Tin cậy", desc: "12 năm xây dựng uy tín với hơn 300 bệnh viện và gần 10.000 nhà thuốc. Mỗi sản phẩm là một lời hứa." },
-  { icon: Heart, title: "Tận tâm", desc: "Đặt lợi ích sức khỏe cộng đồng lên hàng đầu. Mỗi sản phẩm được nghiên cứu với mong muốn giúp người bệnh có cuộc sống tốt hơn." },
-  { icon: Globe, title: "Hội nhập", desc: "Kết nối với mạng lưới đối tác quốc tế uy tín tại Úc, Nhật Bản, Hàn Quốc và Nga để mang giải pháp tốt nhất về Việt Nam." },
-  { icon: Star, title: "Tiên phong", desc: "Luôn đi đầu trong nghiên cứu và ứng dụng công nghệ dược phẩm mới nhất. Không ngừng đổi mới để phục vụ tốt hơn." },
-  { icon: Users, title: "Đoàn kết", desc: "Xây dựng đội ngũ chuyên nghiệp, gắn kết. Thành công của từng thành viên là thành công của cả tổ chức." },
+  { icon: Scale,        title: "Đạo đức là nền tảng", desc: "Mọi quyết định kinh doanh đều đặt trên nền tảng đạo đức. Hành xử trung thực, minh bạch với đối tác, khách hàng và cộng đồng." },
+  { icon: CheckCircle2, title: "Cam kết",               desc: "Đã nói là làm. Giữ trọn cam kết với chất lượng sản phẩm, với bệnh nhân và các đối tác y tế — không thỏa hiệp, không ngoại lệ." },
+  { icon: Users,        title: "Đoàn kết",              desc: "Sức mạnh của NTB đến từ tập thể. Mỗi cá nhân đóng góp, mỗi phòng ban phối hợp — cùng nhau tạo nên kết quả vượt trội." },
+  { icon: Gift,         title: "Chia sẻ",               desc: "Chia sẻ kiến thức, kinh nghiệm và giá trị với đồng nghiệp, đối tác và cộng đồng. Sự thịnh vượng có ý nghĩa hơn khi được lan tỏa." },
+  { icon: BookOpen,     title: "Học nữa học mãi",       desc: "Ngành dược luôn đổi mới — NTB cũng vậy. Không ngừng cập nhật kiến thức y khoa, nâng cao năng lực chuyên môn mỗi ngày." },
+  { icon: Globe,        title: "Hội nhập quốc tế",      desc: "Kết nối với mạng lưới đối tác uy tín tại Úc, Nhật Bản, Hàn Quốc và Nga để mang giải pháp dược phẩm tốt nhất về Việt Nam." },
 ];
 
 const milestones = [

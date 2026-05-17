@@ -1,37 +1,36 @@
 import Link from "next/link";
-import Image from "next/image";
 import { ArrowRight, Calendar } from "lucide-react";
 
 const newsItems = [
   {
-    date: "2026-05-10",
-    dateDisplay: "10/05/2026",
-    category: "Sự kiện",
-    title: "NTB Pharma New đồng hành cùng Hội nghị khoa học toàn quốc",
-    excerpt:
-      "NTB Pharma New tiếp tục khẳng định vai trò đồng hành cùng cộng đồng y tế tại hội nghị khoa học y dược thường niên năm 2026.",
-    href: "/tin-tuc/hoi-nghi-khoa-hoc-2026",
-    image: "/images/hoi-thao-tap-the.jpg",
-  },
-  {
-    date: "2026-03-15",
-    dateDisplay: "15/03/2026",
+    date: "2025-06-21",
+    dateDisplay: "21/06/2025",
     category: "Công ty",
-    title: "Kick-off kế hoạch năm 2026 — NTB Stronger Together",
+    title: "Chúc mừng 100 năm Ngày Báo chí Cách mạng Việt Nam",
     excerpt:
-      "Sự kiện kick-off đầu năm 2026 với chủ đề 'Stronger Together' đánh dấu bước chuyển mình mạnh mẽ trong chiến lược phát triển của NTB Pharma New.",
-    href: "/tin-tuc/kick-off-2026",
-    image: "/images/ntb-stronger-1.jpg",
+      "NTB Pharma New tri ân những người làm báo nhân kỷ niệm 100 năm Ngày Báo chí Cách mạng Việt Nam (21/06/1925 – 21/06/2025).",
+    href: "/tin-tuc/bao-chi-cach-mang-2025",
+    image: "https://ntbpharmanew.vn/storage/newsThumbnail/1750483645833.png",
   },
   {
-    date: "2026-01-20",
-    dateDisplay: "20/01/2026",
-    category: "Sản phẩm",
-    title: "Ra mắt sản phẩm Haas Vital Stronger Multivitamin",
+    date: "2025-06-11",
+    dateDisplay: "11/06/2025",
+    category: "Văn hóa",
+    title: "NTB Stronger 2025: Tháng thể thao truyền cảm hứng",
     excerpt:
-      "NTB Pharma New chính thức giới thiệu Haas Vital Stronger Multivitamin — sản phẩm dinh dưỡng thế hệ mới dành cho trẻ em, kết quả hợp tác với đối tác Úc.",
-    href: "/tin-tuc/ra-mat-haas-vital",
-    image: "/images/event-product-launch-1.jpg",
+      "NTB Stronger 2025 — tháng thể thao của NTB Pharma New với nhiều hoạt động sôi nổi, lan tỏa tinh thần khỏe mạnh và đoàn kết trong toàn công ty.",
+    href: "/tin-tuc/ntb-stronger-2025",
+    image: "https://ntbpharmanew.vn/storage/newsThumbnail/1749656727810.jpg",
+  },
+  {
+    date: "2024-01-04",
+    dateDisplay: "04/01/2024",
+    category: "Sự kiện",
+    title: "NTB Pharma New — Nhà tài trợ vàng Hội nghị Y học Bào thai lần thứ 1",
+    excerpt:
+      "NTB Pharma New tự hào là nhà tài trợ vàng cho Hội nghị Khoa học Y học Bào thai lần thứ 1 — khẳng định cam kết đồng hành với y tế chuyên sâu.",
+    href: "/tin-tuc/hoi-nghi-y-hoc-bao-thai",
+    image: "https://ntbpharmanew.vn/storage/newsThumbnail/1704354140763.png",
   },
 ];
 
@@ -39,6 +38,7 @@ const categoryColors: Record<string, string> = {
   "Sự kiện": "bg-blue-100 text-[#01377d]",
   "Công ty": "bg-green-100 text-[#004900]",
   "Sản phẩm": "bg-amber-100 text-amber-800",
+  "Văn hóa": "bg-purple-100 text-purple-800",
 };
 
 export default function NewsSection() {
@@ -71,12 +71,11 @@ export default function NewsSection() {
             >
               {/* Real photo */}
               <div className="relative h-48 overflow-hidden bg-[#01377d]">
-                <Image
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
                   src={item.image}
                   alt={item.title}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
                 <div className="absolute bottom-3 left-4">

@@ -1,6 +1,5 @@
 import HeroSection from "@/components/sections/HeroSection";
 import StatsSection from "@/components/sections/StatsSection";
-import ProductsSection from "@/components/sections/ProductsSection";
 import ProductOrbitSection from "@/components/sections/ProductOrbitSection";
 import HCPSection from "@/components/sections/HCPSection";
 import CoreValuesSection from "@/components/sections/CoreValuesSection";
@@ -14,7 +13,6 @@ export default function HomePage() {
     <>
       <HeroSection />
       <StatsSection />
-      <ProductsSection />
       <ProductOrbitSection />
       <HCPSection />
       <CoreValuesSection />
